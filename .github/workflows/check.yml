@@ -19,3 +19,11 @@ jobs:
         ha_version: "latest"
       env:
         HASS_EXTRA_ARGS: "-f -s -i"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v1
