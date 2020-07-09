@@ -1,0 +1,3 @@
+shell_command:
+  shutdown: sudo shutdown now
+  reboot: sudo reboot now

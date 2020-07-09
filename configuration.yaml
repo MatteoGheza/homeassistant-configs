@@ -1,0 +1,71 @@
+default_config:
+
+homeassistant:
+  packages: !include_dir_named packages
+  auth_providers:
+   - type: homeassistant
+   - type: legacy_api_password
+     api_password: !secret http_password
+
+http:
+  ssl_certificate: !secret ssl_cert_path
+  ssl_key: !secret ssl_key_path
+  
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+shopping_list:
+
+api:
+alexa:
+  smart_home:
+    locale: it-IT
+    filter:
+      include_entities:
+        - media_player.living_room_tv
+        - camera.webcam_piamborno
+        - camera.webcam_esine
+        - camera.veranda
+    entity_config:
+      media_player.living_room_tv_3:
+        name: "tivù sala"
+        description: "Livingroom TV"
+
+wake_on_lan:
+webostv:
+  host: !secret livingroomtv_ip
+  name: Living Room TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret livingroomtv_mac_addr
+  customize:
+    sources:
+      - livetv
+      - youtube
+      - netflix
+
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+conversation:
+history:
+logbook:
+
+map:
+sun:
+
+hacs:
+  token: !secret hacs_token
+  
+logger:
+  default: warning
+  logs:
+    homeassistant.components.http.ban: warning
+    #pylgtv.webos_client: debug
+    #homeassistant.components.alexa: debug
+    #alexapy.alexawebsocket: debug
+    #custom_components.alexa_media: debug

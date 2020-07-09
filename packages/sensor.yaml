@@ -1,0 +1,64 @@
+sensor:
+  ########################################################################
+  ### Monitor di Sistema                                               ###
+  ########################################################################
+
+  - platform: qnap
+    host: !secret qnap_ip
+    username: !secret qnap_username
+    password: !secret qnap_password
+    monitored_conditions:
+      - status
+      - cpu_usage
+      - memory_percent_used
+      - network_tx
+      - volume_percentage_used
+      - drive_temp
+      - system_temp
+
+  # Ultima versione di HA disponibile
+  - platform: rest 
+    name: Versione HA Corrente
+    resource: https://pypi.python.org/pypi/homeassistant/json 
+    value_template: '{{ value_json.info.version }}'
+    scan_interval: 43200 # ogni 12 ore
+
+  # Versione di HA installata
+  - platform: command_line 
+    name: Versione HA Installata 
+    command: "head -5 /home/homeassistant/.homeassistant/.HA_VERSION"
+    scan_interval: 43200 # ogni 12 ore
+
+  # Batterie telefoni
+  - platform: template
+    sensors:
+      batteria_cel_fulvio:
+        friendly_name: Batteria telefono Fulvio
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.life360_fulvio', 'battery') %}
+                {{ state_attr('device_tracker.life360_fulvio', 'battery')|round }}
+            {% else %}
+                {{ states('device_tracker.life360_fulvio') }}
+            {%- endif %}
+        device_class: battery
+      batteria_cel_sabrina:
+        friendly_name: Batteria telefono Sabrina
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.life360_sabrina', 'battery') %}
+                {{ state_attr('device_tracker.life360_sabrina', 'battery')|round }}
+            {% else %}
+               {{ states('device_tracker.life360_sabrina') }}
+            {%- endif %}
+        device_class: battery
+      batteria_cel_matteo:
+        friendly_name: Batteria telefono Matteo
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.life360_matteo', 'battery') %}
+                {{ state_attr('device_tracker.life360_matteo', 'battery')|round }}
+            {% else %}
+                {{ states('device_tracker.life360_matteo') }}
+            {%- endif %}
+        device_class: battery

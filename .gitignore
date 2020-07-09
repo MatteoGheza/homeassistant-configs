@@ -1,0 +1,23 @@
+# Ignore folders.
+.*
+!.gitignore
+tts
+www
+custom_components
+google_calendar*
+deps
+
+# Ignore private config files
+*.key
+*.pem
+*.json
+*.conf
+*.zip
+*.db
+*.log
+prezzibenzina.yaml
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_*.yaml

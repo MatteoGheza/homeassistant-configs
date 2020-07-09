@@ -1,0 +1,13 @@
+#sensor:
+########################################################################
+### Scrapers                                                         ###
+########################################################################
+
+# Webcams
+#  - platform: scrape
+#    resource: !secret webcam_montisola_scraper_url
+#    select: ".col-lg-10"
+#    name: url webcam montisola
+#    value_template: '{{ value.split("},source:")[1].split(",parentId:")[0] }}'
+#    headers:
+#      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36

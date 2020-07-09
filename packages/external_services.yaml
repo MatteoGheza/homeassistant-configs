@@ -1,0 +1,23 @@
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
+
+life360:
+  accounts:
+    - username: !secret life360_username
+      password: !secret life360_password
+
+#sonoff:
+#  username: !secret sonoff_username
+#  password: !secret sonoff_password
+#  scan_interval: 60
+#  grace_period: 600
+#  api_region: eu
+#  entity_prefix: True
+#  debug: False
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 39
+  platform: smart_life

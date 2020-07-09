@@ -1,0 +1,33 @@
+camera:
+  #- platform: generic
+  #  stillimage_url: !secret arduino_cam_capture_url
+  #  stream_source: !secret arduino_cam_stream_url
+  #  name: Arduino
+  #- platform: generic
+  #  name: Cucina
+  #  still_image_url: >
+  #    {{ states('sensor.url_telecamera') }}
+  #  verify_ssl: false
+
+  - platform: generic
+    name: Webcam Piamborno
+    still_image_url: !secret webcam_piamborno_url
+
+  - platform: generic
+    name: Webcam Esine
+    still_image_url: !secret webcam_meteo_esine_url
+
+  - platform: ffmpeg
+    name: Veranda
+    input: !secret webcam_veranda_url
+  
+  #- platform: generic
+  #  name: Webcam Montisola
+  #  #stream_source: !secret webcam_montisola_source
+  #  stream_source: >
+  #    {{ states('sensor.url_webcam_montisola').replace('"','') }}
+  #  still_image_url: !secret webcam_montisola_image 
+
+  #- platform: generic
+  #  name: Meteo Brescia
+  #  still_image_url: !secret meteo_brescia_url

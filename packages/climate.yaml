@@ -1,0 +1,16 @@
+climate:
+#- platform: generic_thermostat
+#  name: Fan SHIM
+#  heater: switch.fan_shim
+#  target_sensor: sensor.glances_cpu_thermal_1_temp
+#  min_temp: 40
+#  max_temp: 80
+#  ac_mode: true
+#  target_temp: 40
+#  cold_tolerance: 0.1
+#  hot_tolerance: 0.1
+#  min_cycle_duration:
+#    seconds: 120
+#  keep_alive:
+#    minutes: 5
+#  initial_hvac_mode: "cool"
