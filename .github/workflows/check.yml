@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: actions/checkout@master
-    #- run: mv secrets.yaml.tmpl secrets.yaml
+    - run: mv secrets.example.yaml secrets.yaml
     - uses: kpucynski/action-ha-config-check@master
       with:
         ha_version: "latest"

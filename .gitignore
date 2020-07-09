@@ -1,6 +1,7 @@
 # Ignore folders.
 .*
 !.gitignore
+!.github
 tts
 www
 custom_components
@@ -19,5 +20,6 @@ prezzibenzina.yaml
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
-secrets.yaml
+secrets*
+!secrets.example.yaml
 known_*.yaml
