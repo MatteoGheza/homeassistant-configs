@@ -1,0 +1,22 @@
+spegni_caricabatterie:
+  alias: Spegni caricabatterie
+  icon: mdi:charger
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.camera_di_matteo
+      media_content_id: Presaspegni
+      media_content_type: routine
+    entity_id: media_player.camera_di_matteo
+    service: media_player.play_media
+accendi_caricabatterie:
+  alias: Accendi caricabatterie
+  icon: mdi:charge
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.camera_di_matteo
+      media_content_id: Presaccendi
+      media_content_type: routine
+    entity_id: media_player.camera_di_matteo
+    service: media_player.play_media

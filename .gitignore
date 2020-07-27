@@ -15,6 +15,7 @@ deps
 *.conf
 *.zip
 *.db
+*.db*
 *.log
 prezzibenzina.yaml
 
