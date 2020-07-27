@@ -24,3 +24,6 @@ ip_bans.yaml
 secrets*
 !secrets.example.yaml
 known_*.yaml
+
+# HACS Themes
+themes/animated-weather-card

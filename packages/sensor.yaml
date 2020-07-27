@@ -1,8 +1,27 @@
 sensor:
-  ########################################################################
-  ### Monitor di Sistema                                               ###
-  ########################################################################
+  # Meteo
+  - platform: yr
+    name: Meteo Casa Attuale
+  - platform: yr
+    forecast: 2
+    name: Meteo Casa 2 ore
+  - platform: yr
+    forecast: 4
+    name: Meteo Casa 4 ore
+  - platform: yr
+    forecast: 8
+    name: Meteo Casa 8 ore
+  - platform: yr
+    forecast: 16
+    name: Meteo Casa 16 ore
+  - platform: yr
+    forecast: 24
+    name: Meteo Casa 24 ore
+  - platform: yr
+    forecast: 48
+    name: Meteo Casa 48 ore
 
+  # Monitor di Sistema
   - platform: qnap
     host: !secret qnap_ip
     username: !secret qnap_username
